@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h5>Products List</h5>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Id</th><th>Name</th><th>Price</th><th>Date</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+        <tr>
+          <td> {{product.productId}}</td>
+          <td> {{product.productName}}</td>
+          <td> {{product.productPrice}}</td>
+          <td> {{product.dateCreation | date : "dd/MM/yyyy"}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
