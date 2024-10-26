@@ -1,1 +1,48 @@
-<p>add-product works!</p>
+<div class="container">
+  <div>
+    <h2>Add Product</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Product Id</label>
+      <input
+        type="text"
+        [(ngModel)]="newProduct.productId"
+        name="productId"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Product Name</label>
+      <input
+        type="text"
+        [(ngModel)]="newProduct.productName"
+        name="productName"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Product Price</label>
+      <input
+        type="number"
+        [(ngModel)]="newProduct.productPrice"
+        name="productPrice"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date Creation</label>
+      <input
+        type="date"
+        [(ngModel)]="newProduct.dateCreation"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="addProduct()" class="btn btn-success">
+        ADD
+      </button>
+    </div>
+  </form>
+</div>
