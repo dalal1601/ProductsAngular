@@ -32,6 +32,15 @@
              name="dateCreation"
              class="form-control">
     </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Category</label>
+      <select class="form-control form-control-lg" id ="categoryId" name="categoryId" [(ngModel)]="newCategoryId">
+        <option *ngFor="let category of categories" [value]="category.categoryId">
+          {{ category.categoryName}}
+        </option>
+      </select>
+
+    </div>
     <div class="mt-2">
       <button type="submit" (click)="updateProduct()"  class="btn btn-success">UPDATE</button>
     </div>

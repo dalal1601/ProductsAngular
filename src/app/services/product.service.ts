@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ProductModel} from '../models/product.model';
+import {CategoryModel} from '../models/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,20 @@ export class ProductService {
 
   products : ProductModel[];
   product! : ProductModel; //objectforProductID
+  categories : CategoryModel[];
+  category! : CategoryModel;
   constructor() {
+    this.categories = [
+      {categoryId : 1, categoryName : "Bakery"},
+      {categoryId : 2, categoryName : "Dairy"},
+      {categoryId : 3, categoryName : "Meat"},
+      {categoryId : 4, categoryName : "Frozen food"},
+      {categoryId : 5, categoryName : "Seafood"},
+    ]
     this.products = [
-      {productId : 1, productName: "Cheese", productPrice : 34.00, dateCreation: new Date()},
-      {productId : 2, productName: "Bread", productPrice : 3.00, dateCreation: new Date()},
-      {productId : 3, productName: "Milk", productPrice : 8.00, dateCreation: new Date()}
+      {productId : 1, productName: "Cheese", productPrice : 34.00, dateCreation: new Date(), category:{categoryId : 2, categoryName : "Dairy"}},
+      {productId : 2, productName: "Bread", productPrice : 3.00, dateCreation: new Date(),  category:{categoryId : 1, categoryName : "Bakery"}},
+      {productId : 3, productName: "Milk", productPrice : 8.00, dateCreation: new Date(),  category:{categoryId : 2, categoryName : "Dairy"}}
 
     ];
   }
@@ -40,6 +50,12 @@ export class ProductService {
       (x,y)=>
         (x.productId! > y.productId! ? 1 : -1)
     )
-
+  }
+  categoriesList(): CategoryModel[]{
+    return this.categories;
+  }
+  editCategory(id : number): CategoryModel{
+    this.category = this.categories.find(c => c.categoryId == id)!;
+    return this.category ;
   }
 }
